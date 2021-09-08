@@ -1,5 +1,4 @@
-from enum import unique
-from flask import Flask, render_template, request, redirect
+from flask import Flask, redirect
 from flask.helpers import url_for
 from flask_sqlalchemy import SQLAlchemy
 from blueprints.books import BOOKS_BLUEPRINT
