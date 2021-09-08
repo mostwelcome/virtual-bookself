@@ -7,7 +7,7 @@
     <title>Add Your Book</title>
 </head>
 <body>
-    <form action="{{ url_for('add_book') }}" method="POST">
+    <form action="{{ url_for('books.add_book') }}" method="POST">
         <label>Book Name</label>
         <input type="text" name="name">
         <label>Book Author</label>

@@ -10,20 +10,22 @@ def books_list():
     book_list = []
     for book in all_books:
         book_list.append({
-            'name':book.name,
-            'author':book.author,
-            'rating':book.rating
+            'name': book.name,
+            'author': book.author,
+            'rating': book.rating
         })
     context = {
         'books': book_list
     }
-    # return render_template('index.html', **context)
-    return context
+    return render_template('index.html', **context)
+    # return context
 
 
 @BOOKS_BLUEPRINT.route('/add', methods=['GET', 'POST'])
 def add_book():
-    if request.method == 'GET':
-        new_book = create_book(name='abc5', author='ttt', rating=2)
+    if request.method == 'POST':
+        new_book = create_book(
+            name=request.form['name'], author=request.form['author'], rating=request.form['rating'])
+        print(new_book)
         return redirect(url_for('home'))
     return render_template('add_book.html')
