@@ -23,3 +23,8 @@ class Book(db.Model):
     @classmethod
     def get_all_books(cls):
         return cls.query.all()
+
+    @classmethod
+    def get_book(cls, id):
+        return cls.query.get(id)
+ 

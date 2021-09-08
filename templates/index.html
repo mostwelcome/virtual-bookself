@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Your Bookself</title>
 </head>
+
 <body>
     <h1>My Library</h1>
     {% if not books %}
-        <h3> Library is Empty </h3>
+    <h3> Library is Empty </h3>
     {% else %}
-        <ul>
-            {% for book in books %}
-                <li>{{ book.name}} - {{book.author}} - {{ book.rating}}/10</li>
-            {% endfor %}
+    <ul>
+        {% for book in books %}
+        <li>{{ book.id}} - {{ book.name}} - {{book.author}} - {{ book.rating}}/10</li> 
+        <a href="{{ url_for('books.edit_rating', id=book.id) }}">Edit Rating</a>
+        {% endfor %}
         <br>
-        </ul>
-    {% endif %} 
+    </ul>
+    {% endif %}
     <a href="{{ url_for('books.add_book') }}">Add New Book</a>
 </body>
+
 </html>
