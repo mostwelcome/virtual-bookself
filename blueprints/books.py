@@ -26,6 +26,5 @@ def add_book():
     if request.method == 'POST':
         new_book = create_book(
             name=request.form['name'], author=request.form['author'], rating=request.form['rating'])
-        print(new_book)
         return redirect(url_for('home'))
     return render_template('add_book.html')
