@@ -18,6 +18,7 @@ def books_list():
         'books': book_list
     }
     return render_template('index.html', **context)
+    # Can return context json 
     # return context
 
 
