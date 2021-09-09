@@ -1,12 +1,11 @@
 from flask import Flask, redirect
 from flask.helpers import url_for
-from flask_sqlalchemy import SQLAlchemy
+from database.db import db
 from blueprints.books import BOOKS_BLUEPRINT
 
 
 app = Flask(__name__)
 app.config.from_pyfile('config/settings.staging.cfg')
-db = SQLAlchemy(app)
 db.init_app(app)
 
 app.register_blueprint(BOOKS_BLUEPRINT, url_prefix='/books')

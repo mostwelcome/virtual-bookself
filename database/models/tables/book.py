@@ -20,6 +20,11 @@ class Book(db.Model):
         db.session.commit()
         return self
 
+
+    def delete_book(self):
+        db.session.delete(self)
+        db.session.commit()
+
     @classmethod
     def get_all_books(cls):
         return cls.query.all()

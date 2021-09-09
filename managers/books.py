@@ -9,6 +9,7 @@ def get_all_books():
     return Book.get_all_books()
 
 
+   
 def update_book_rating(id, rating):
     book_to_update = Book.get_book(id=id)
     book_to_update.rating = rating
@@ -16,3 +17,8 @@ def update_book_rating(id, rating):
 
 def get_book_details_by_id(id):
     return Book.get_book(id=id)
+
+
+def delete_book_details(id):
+    book_to_delete = Book.get_book(id=id)
+    return Book.delete_book(book_to_delete)

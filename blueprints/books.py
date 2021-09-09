@@ -1,7 +1,7 @@
 from database.models.tables.book import Book
 from flask import Blueprint, request, render_template, redirect, url_for, flash, session
 
-from managers.books import get_all_books, create_book, get_book_details_by_id, update_book_rating
+from managers.books import delete_book_details, get_all_books, create_book, get_book_details_by_id, update_book_rating
 BOOKS_BLUEPRINT = Blueprint('books', __name__)
 
 
@@ -44,3 +44,9 @@ def edit_rating(id=None):
     elif request.method == 'POST':
         update_book_rating(id, request.form['rating'])
         return redirect(url_for('books.books_list'))
+
+
+@BOOKS_BLUEPRINT.route('/delete/<id>',methods=['POST', 'GET'] )
+def delete_book(id=None):
+    delete_book_details(id)
+    return redirect(url_for('books.books_list'))
